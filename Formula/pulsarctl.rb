@@ -10,21 +10,19 @@ class Pulsarctl < Formula
 
   def install
     system "go", "build", "-o", bin / "pulsarctl"
-    if !File::directory?("~/.pulsarctl")
-      system "mkdir", "-p", "~/.pulsarctl"
-    end
-    system "cp", "-r", "plugins", "~/.pulsarctl"
+    system "mkdir", "-p", share / "plugins"
+    system "cp", "-r", "plugins/", share / "plugins"
+
+    puts "In order to use this plugins, please add the plugin directory '#{share}/plugins' to the system PATH. " \
+             "You can do so by adding the following line to your bash profile."
+    puts ""
+    puts "export PATH=${PATH}:#{share}/plugins"
+    puts ""
+    puts "Happy Pulsaring!"
   end
 
   test do
     out = shell_output("#{bin}/pulsarctl 2>&1")
     assert_match "a CLI for Apache Pulsar", out
   end
-
-  puts "In order to use this plugins, please add the plugin directory '${plugins_dir}' to the system PATH. You can do so by adding the following line to your bash profile."
-  puts ""
-  puts "export PATH=${PATH}:${HOME}/.pulsarctl/plugins"
-  puts ""
-  puts "Happy Pulsaring!"
-
 end
