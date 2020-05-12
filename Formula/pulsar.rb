@@ -10,7 +10,7 @@ class Pulsar < Formula
 
   def caveats
     s = <<-EOS
-    In order to use the pulsar, please add the pulsar directory #{rack} to
+    In order to use the pulsar, please add the pulsar directory #{rack}/#{installed_version}/libexec/bin to
     the system PATH.
 
     export PATH=${PATH}:#{rack}/#{installed_version}/libexec/bin
@@ -21,6 +21,6 @@ class Pulsar < Formula
   end
 
   test do
-    system "#{rack}/bin/pulsar", "--help"
+    system "#{rack}/libexec/bin/pulsar", "--help"
   end
 end
