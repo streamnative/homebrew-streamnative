@@ -1,8 +1,8 @@
-class CloudCli < Formula
+class Snctl < Formula
   desc "StreamNative cloud cli tools"
   homepage "https://streamnative.io/"
-  url "http:/snctl_0.4.1-rc_darwin_amd64.tar.gz"
-  sha256 "11a2f09739e1edeab6f27d8c92f851360d91feb21ec42799cebe44842f2e349d"
+  url "https://storage.googleapis.com/downloads.sncloud-stg.dev/snctl/v0.4.0-rc.3/snctl_0.4.0-rc.3_darwin_amd64.tar.gz"
+  sha256 "22169f351246425f2b813b3f825e3b136bfe255e0b59585be5fcfb29a4d03911"
 
   def install
     bin.install "snctl"
