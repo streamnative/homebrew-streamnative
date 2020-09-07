@@ -1,8 +1,8 @@
 class Pulsar < Formula
   desc "Pulsar is a distributed pub-sub messaging platform with a very flexible messaging model and an intuitive client API."
   homepage "https://github.com/streamnative/pulsar"
-  url "https://archive.apache.org/dist/pulsar/pulsar-2.5.0/apache-pulsar-2.5.0-bin.tar.gz"
-  sha256 "721b12c6fa7d87cbf2763d2b7c3ffc0c5395d2cb1f3760e9ae33d6f8c650a064"
+  url "https://archive.apache.org/dist/pulsar/pulsar-2.6.1/apache-pulsar-2.6.1-bin.tar.gz"
+  sha256 "f3c332c0cc0c1ab27040614842042da8009be18c521e44a446364eabf2d46290"
 
   def install
     libexec.install Dir["*"]
