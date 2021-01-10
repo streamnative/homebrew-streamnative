@@ -10,10 +10,10 @@ class Platform < Formula
 
   def caveats
     <<-EOS
-    In order to use the platform, please add the pulsar directory #{rack}/#{installed_version}/libexec/bin to
+    In order to use the platform, please add the pulsar directory #{rack}/1.0.0/libexec/bin to
     the system PATH.
 
-    export PATH=${PATH}:#{rack}/#{installed_version}/libexec/bin
+    export PATH=${PATH}:#{rack}/1.0.0/libexec/bin
     EOS
   end
 
