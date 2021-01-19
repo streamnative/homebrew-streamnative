@@ -1,17 +1,12 @@
 class Pulsarctl < Formula
   desc "CLI for Apache Pulsar written in golang"
   homepage "https://streamnative.io/"
-  url "https://github.com/streamnative/pulsarctl.git",
-      tag:      "v0.5.0",
-      revision: "615bbc787af151c1f872fdc4c5e048ac562b9618"
-  sha256 "d0d6b55017cf349dd893248b0541c8026db9be5d5a7c5523d7bb91426c279fe3"
-
-  depends_on "go" => :build
+  url "https://github.com/streamnative/pulsarctl/releases/download/v2.7.0.2/pulsarctl-amd64-darwin.tar.gz"
+  sha256 "9c7b7519fa20e43a9e1bb614b5382273f8df35bed673c4092b351a9adeed1eb7"
 
   def install
-    system "go", "build", "-o", bin / "pulsarctl"
-    mkdir share / "plugins"
-    cp "plugins/", share / "plugins"
+    bin.install "pulsarctl"
+    share.install "plugins"
 
     puts "In order to use this plugins, please add the plugin directory '#{share}/plugins' to the system PATH. " \
              "You can do so by adding the following line to your bash profile."
