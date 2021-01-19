@@ -18,6 +18,6 @@ class Platform < Formula
   end
 
   test do
-    system "#{rack}/1.0.0/libexec/bin/pulsar", "--help"
+    system "#{rack}/64/libexec/bin/pulsar", "--help"
   end
 end
