@@ -20,6 +20,6 @@ class Pulsar < Formula
   end
 
   test do
-    system "#{rack}/libexec/bin/pulsar", "--help"
+    system "#{rack}/2.7.0/libexec/bin/pulsar", "--help"
   end
 end
