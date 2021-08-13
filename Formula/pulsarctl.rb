@@ -9,7 +9,7 @@ class Pulsarctl < Formula
     share.install "plugins"
 
     puts "In order to use this plugins, please add the plugin directory '#{share}/plugins' to the system PATH. " \
-             "You can do so by adding the following line to your bash profile."
+         "You can do so by adding the following line to your bash profile."
     puts ""
     puts "export PATH=${PATH}:#{share}/plugins"
     puts ""
