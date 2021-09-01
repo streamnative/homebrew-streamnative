@@ -7,7 +7,7 @@ class Pulsar < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk" => :recommended
+  depends_on "openjdk" => :optional
 
   def install
     libexec.install Dir["*"]

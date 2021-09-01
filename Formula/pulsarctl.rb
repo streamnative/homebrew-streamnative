@@ -11,6 +11,17 @@ class Pulsarctl < Formula
     libexec.install Dir["*"]
     bin.write_exec_script Dir["#{libexec}/pulsarctl"]
     bin.write_exec_script Dir["#{libexec}/plugins/pulsarctl-security_tool"]
+
+    # Install completions
+    (prefix/"completions").mkdir
+
+    system "#{libexec}/pulsarctl completion zsh > #{prefix}/completions/_pulsarctl"
+    system "#{libexec}/pulsarctl completion bash > #{prefix}/completions/pulsarctl.bash"
+
+    zsh_completion.install "#{prefix}/completions/_pulsarctl"
+    bash_completion.install "#{prefix}/completions/pulsarctl.bash"
+
+    rmdir prefix/"completions"
   end
 
   test do
