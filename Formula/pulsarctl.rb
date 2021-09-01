@@ -1,19 +1,15 @@
 class Pulsarctl < Formula
   desc "CLI for Apache Pulsar written in golang"
   homepage "https://streamnative.io/"
-  url "https://github.com/streamnative/pulsarctl/releases/download/v2.7.0.2/pulsarctl-amd64-darwin.tar.gz"
-  sha256 "9c7b7519fa20e43a9e1bb614b5382273f8df35bed673c4092b351a9adeed1eb7"
+  license "Apache-2.0"
+  version "2.8.0.15"
+  url "https://github.com/streamnative/pulsarctl/releases/download/v2.8.0.15/pulsarctl-amd64-darwin.tar.gz"
+  sha256 "2e05d525b012d713b9befab1a8c2cd680a53a3441df78a65fff8d2886ec5f443"
 
   def install
-    bin.install "pulsarctl"
-    share.install "plugins"
-
-    puts "In order to use this plugins, please add the plugin directory '#{share}/plugins' to the system PATH. " \
-         "You can do so by adding the following line to your bash profile."
-    puts ""
-    puts "export PATH=${PATH}:#{share}/plugins"
-    puts ""
-    puts "Happy Pulsaring!"
+    libexec.install Dir["*"]
+    bin.write_exec_script Dir["#{libexec}/pulsarctl"]
+    bin.write_exec_script Dir["#{libexec}/plugins/pulsarctl-security_tool"]
   end
 
   test do
