@@ -1,25 +1,52 @@
 class Pulsar < Formula
   desc "Distributed pub-sub messaging platform with a very flexible messaging model"
-  homepage "https://github.com/streamnative/pulsar"
-  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.7.0/apache-pulsar-2.7.0-bin.tar.gz"
-  sha256 "bb13827a6461d84b43cc83264bbbcdcfd2338a3ae84fdf5aeb2327a6fd48d0fc"
+  homepage "https://pulsar.apache.org"
+  license "Apache-2.0"
+  version "2.8.0"
+  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.8.0/apache-pulsar-2.8.0-bin.tar.gz"
+  sha256 "91279c9f14208af0ac31bec0f1fec5bd1f9ffc7839d00dfca310b28fe250bc45"
+
+  bottle :unneeded
+
+  depends_on "openjdk" => :recommended
 
   def install
     libexec.install Dir["*"]
+    bin.write_exec_script Dir["#{libexec}/bin/pulsar"]
+    bin.write_exec_script Dir["#{libexec}/bin/pulsar-admin"]
+    bin.write_exec_script Dir["#{libexec}/bin/pulsar-client"]
+    bin.write_exec_script Dir["#{libexec}/bin/pulsar-daemon"]
+    bin.write_exec_script Dir["#{libexec}/bin/pulsar-perf"]
   end
 
-  def caveats
-    <<-EOS
-    In order to use the pulsar, please add the pulsar directory #{rack}/2.7.0/libexec/bin to
-    the system PATH.
-
-    export PATH=${PATH}:#{rack}/2.7.0/libexec/bin
-
-    Happy Pulsaring
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <false/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/pulsar</string>
+          <string>standalone</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/pulsar.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/pulsar.log</string>
+      </dict>
+    </plist>
     EOS
   end
 
   test do
-    system "#{rack}/2.7.0/libexec/bin/pulsar", "--help"
+    system "#{bin}/pulsar", "--help"
   end
 end
