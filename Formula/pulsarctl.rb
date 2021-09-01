@@ -1,10 +1,11 @@
 class Pulsarctl < Formula
   desc "CLI for Apache Pulsar written in golang"
   homepage "https://streamnative.io/"
-  license "Apache-2.0"
-  version "2.8.0.15"
   url "https://github.com/streamnative/pulsarctl/releases/download/v2.8.0.15/pulsarctl-amd64-darwin.tar.gz"
   sha256 "2e05d525b012d713b9befab1a8c2cd680a53a3441df78a65fff8d2886ec5f443"
+  license "Apache-2.0"
+
+  bottle :unneeded
 
   def install
     libexec.install Dir["*"]
