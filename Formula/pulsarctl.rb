@@ -6,15 +6,18 @@ class Pulsarctl < Formula
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/streamnative/pulsarctl/releases/download/v2.8.0.15/pulsarctl-amd64-darwin.tar.gz"
-      sha256 "2e05d525b012d713b9befab1a8c2cd680a53a3441df78a65fff8d2886ec5f443"
+      url "https://github.com/streamnative/pulsarctl/releases/download/v2.8.0.16/pulsarctl-amd64-darwin.tar.gz"
+      sha256 "eb7f74f67ff198182a969db5131626143df4e7a6d44cf14c06ce380fc42b5c07"
+    else
+      url "https://github.com/streamnative/pulsarctl/releases/download/v2.8.0.16/pulsarctl-arm64-darwin.tar.gz"
+      sha256 "276382eee5cfd607cc6ae7caec315d258d0a2b35cd41c69f77962f9a011c7d63"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/streamnative/pulsarctl/releases/download/v2.8.0.15/pulsarctl-amd64-linux.tar.gz"
-      sha256 "c3e0df2b09ebaf2383dd502b10437473168d029c71fda897d7283759518289f7"
+      url "https://github.com/streamnative/pulsarctl/releases/download/v2.8.0.16/pulsarctl-amd64-linux.tar.gz"
+      sha256 "eb5857ba6dd0a2f90011660665625f3cbcd97e6266029f2e1e6e8ce86eb74793"
     end
   end
 
