@@ -7,7 +7,6 @@ class Snctl < Formula
   homepage "https://streamnative.io/"
   version "0.10.1"
   license "Apache-2.0"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?

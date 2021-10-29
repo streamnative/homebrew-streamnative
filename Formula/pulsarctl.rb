@@ -2,7 +2,6 @@ class Pulsarctl < Formula
   desc "CLI for Apache Pulsar written in golang"
   homepage "https://streamnative.io/"
   license "Apache-2.0"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
