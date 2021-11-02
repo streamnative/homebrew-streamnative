@@ -5,8 +5,6 @@ class Pulsar < Formula
   sha256 "aafd4a835ff100bde3df37220bfb950ce4dfb3c68f74680ba6c3bdd1cc3904cb"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk" => :optional
 
   def install
