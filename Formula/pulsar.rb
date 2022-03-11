@@ -8,7 +8,12 @@ class Pulsar < Formula
   depends_on "openjdk" => :optional
 
   def install
-    libexec.install Dir["*"]
+    libexec.install Dir["bin"], Dir["lib"], Dir["instances"], Dir["conf"]
+
+    (libexec/"lib/presto/bin/procname/Linux-ppc64le").rmtree
+    pkgshare.install Dir["examples"], Dir["licenses"]
+    (etc/"pulsar").install_symlink libexec/"conf"
+
     bin.write_exec_script Dir["#{libexec}/bin/pulsar"]
     bin.write_exec_script Dir["#{libexec}/bin/pulsar-admin"]
     bin.write_exec_script Dir["#{libexec}/bin/pulsar-client"]
@@ -16,37 +21,27 @@ class Pulsar < Formula
     bin.write_exec_script Dir["#{libexec}/bin/pulsar-perf"]
   end
 
-  plist_options manual: "pulsar standalone"
+  def post_install
+    (var/"log/pulsar").mkpath
+  end
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <false/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/pulsar</string>
-            <string>standalone</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/pulsar.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/pulsar.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [bin/"pulsar", "standalone"]
+    log_path var/"log/pulsar/output.log"
+    error_log_path var/"log/pulsar/error.log"
   end
 
   test do
-    system "#{bin}/pulsar", "--help"
+    fork do
+      exec bin/"pulsar", "standalone", "--zookeeper-dir", "#{testpath}/zk", " --bookkeeper-dir", "#{testpath}/bk"
+    end
+    # The daemon takes some time to start; pulsar-client will retry until it gets a connection, but emit confusing
+    # errors until that happens, so sleep to reduce log spam.
+    sleep 15
+
+    output = shell_output("#{bin}/pulsar-client produce my-topic --messages 'hello-pulsar'")
+    assert_match "1 messages successfully produced", output
+    output = shell_output("#{bin}/pulsar initialize-cluster-metadata -c a -cs localhost -uw localhost -zk localhost")
+    assert_match "Cluster metadata for 'a' setup correctly", output
   end
 end
