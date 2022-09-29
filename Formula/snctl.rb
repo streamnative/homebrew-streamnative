@@ -5,21 +5,21 @@
 class Snctl < Formula
   desc "StreamNative Cloud CLI (snctl)"
   homepage "https://streamnative.io/"
-  version "0.12.1"
+  version "0.13.2"
   license "Apache-2.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v0.12.1/snctl_0.12.1_darwin_arm64.tar.gz"
-      sha256 "0931e33ee2a5e3b47d602233ddfed19e92fded0c78bc4d84f0e067b6097ab126"
+    if Hardware::CPU.intel?
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v0.13.2/snctl_0.13.2_darwin_amd64.tar.gz"
+      sha256 "a0a41f6b228afb99692b514d8f99ef716d47d9241a86de87eace94013e344f77"
 
       def install
         bin.install "snctl"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v0.12.1/snctl_0.12.1_darwin_amd64.tar.gz"
-      sha256 "8b454ffc1ffa8839aa0165d69a470a70930f39aa5308042545794cb0fce11946"
+    if Hardware::CPU.arm?
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v0.13.2/snctl_0.13.2_darwin_arm64.tar.gz"
+      sha256 "d937373afb35192526f8f935992b101012d7fe4e5f60162bf4ed977cd5c6ab24"
 
       def install
         bin.install "snctl"
@@ -28,17 +28,17 @@ class Snctl < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v0.12.1/snctl_0.12.1_linux_arm64.tar.gz"
-      sha256 "8c5957c162ef73ea30f5d164e94b1f26f2276ecb9720a99cef299617270b43b9"
+    if Hardware::CPU.intel?
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v0.13.2/snctl_0.13.2_linux_amd64.tar.gz"
+      sha256 "4f5e3a2b249603e8e938509257dd208799a74d7f49f05f1ccdbea6f3affc77fa"
 
       def install
         bin.install "snctl"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v0.12.1/snctl_0.12.1_linux_amd64.tar.gz"
-      sha256 "ace660dbdd0175f3a693c2fe7cb5a2a02dc3de953326aa048c47be9a91f9da72"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v0.13.2/snctl_0.13.2_linux_arm64.tar.gz"
+      sha256 "102b507795d1a7130b50bf2025d776fa768e875859cb058744297ec5e832b04f"
 
       def install
         bin.install "snctl"
