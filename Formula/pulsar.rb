@@ -1,17 +1,17 @@
 class Pulsar < Formula
   desc "Distributed pub-sub messaging platform with a very flexible messaging model"
   homepage "https://pulsar.apache.org"
-  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.10.0/apache-pulsar-2.10.0-bin.tar.gz"
-  sha256 "d80ce94fddeb718b6cbea9d5ed1e6bb85eac6bd7133d84c0d213c2df0c295800"
+  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.10.2/apache-pulsar-2.10.2-bin.tar.gz"
+  sha256 "a7f79703b8121a57965ba187d35cb90230ca9ff552c73e48a51ed7a559b4089a"
   license "Apache-2.0"
 
   depends_on "openjdk" => :optional
 
   def install
-    libexec.install Dir["bin"], Dir["lib"], Dir["instances"], Dir["conf"]
+    libexec.install Dir["bin", "lib", "instances", "conf"]
 
     (libexec/"lib/presto/bin/procname/Linux-ppc64le").rmtree
-    pkgshare.install Dir["examples"], Dir["licenses"]
+    pkgshare.install Dir["examples", "licenses"]
     (etc/"pulsar").install_symlink libexec/"conf"
 
     bin.write_exec_script Dir["#{libexec}/bin/pulsar"]
