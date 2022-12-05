@@ -8,10 +8,10 @@ class Pulsar < Formula
   depends_on "openjdk" => :optional
 
   def install
-    libexec.install Dir["bin"], Dir["lib"], Dir["instances"], Dir["conf"]
+    libexec.install Dir["bin", "lib", "instances", "conf"]
 
     (libexec/"lib/presto/bin/procname/Linux-ppc64le").rmtree
-    pkgshare.install Dir["examples"], Dir["licenses"]
+    pkgshare.install Dir["examples", "licenses"]
     (etc/"pulsar").install_symlink libexec/"conf"
 
     bin.write_exec_script Dir["#{libexec}/bin/pulsar"]
