@@ -1,7 +1,7 @@
 class PfsqlCli < Formula
-  desc "StreamNative pfSQL CLI (pfsql)"
+  desc "StreamNative pfSQL CLI (pfsql-cli)"
   homepage "https://streamnative.io/"
-  version "v0.17.0"
+  version "0.17.0"
   license "Apache-2.0"
 
   depends_on "curl"
