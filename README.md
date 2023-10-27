@@ -20,4 +20,5 @@ Tools:
 | Tool | Installation |
 | ---- | ------------ |
 | [Pulsarctl](https://github.com/streamnative/pulsarctl) | brew install pulsarctl |
+|`pfsql-cli`| `brew install streamnative/streamnative/pfsql-cli`|
 
