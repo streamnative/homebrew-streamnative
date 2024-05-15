@@ -18,5 +18,5 @@ jobs:
           HOMEBREW_TAP_DIR="/usr/local/Homebrew/Library/Taps/streamnative/homebrew-streamnative"
           sudo mkdir -p "${HOMEBREW_TAP_DIR}"
           sudo rm -rf "${HOMEBREW_TAP_DIR}"
-          ln -s "${PWD}" "${HOMEBREW_TAP_DIR}"
+          sudo ln -s "${PWD}" "${HOMEBREW_TAP_DIR}"
           brew test-bot
