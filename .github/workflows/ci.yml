@@ -12,6 +12,7 @@ jobs:
       - name: Run brew test-bot
         run: |
           set -e
+          brew upgrade --cask vagrant
           ls /Applications
           sudo xcode-select --switch /Applications/Xcode_13.2.1.app/Contents/Developer
           brew update
