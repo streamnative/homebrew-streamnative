@@ -4,7 +4,7 @@ class Pulsarctl < Formula
   license "Apache-2.0"
 
   on_macos do
-    if Hardware::CPU.intel?
+    on_intel do
       url "https://github.com/streamnative/pulsarctl/releases/download/v3.2.1.3/pulsarctl-amd64-darwin.tar.gz"
       sha256 "944e0e190aa5c5c4b7a8f1020b1d2fa81755199009a71d8c1eb5c89bd30b517c"
     else
@@ -14,11 +14,11 @@ class Pulsarctl < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
+    on_intel do
       url "https://github.com/streamnative/pulsarctl/releases/download/v3.2.1.3/pulsarctl-amd64-linux.tar.gz"
       sha256 "a633252950b18f2bc995dc30d09e850f97ab30360ee7a1a4d3461c3db88642df"
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    on_arm do
       url "https://github.com/streamnative/pulsarctl/releases/download/v3.2.1.3/pulsarctl-arm64-linux.tar.gz"
       sha256 "a56be89a8e5ce99d9860c4944eb0896b2062034617b1575bf931d6fa28944dbc"
     end
