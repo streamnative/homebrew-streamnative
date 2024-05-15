@@ -18,6 +18,10 @@ class Pulsarctl < Formula
       url "https://github.com/streamnative/pulsarctl/releases/download/v3.2.1.3/pulsarctl-amd64-linux.tar.gz"
       sha256 "a633252950b18f2bc995dc30d09e850f97ab30360ee7a1a4d3461c3db88642df"
     end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/streamnative/pulsarctl/releases/download/v3.2.1.3/pulsarctl-arm64-linux.tar.gz"
+      sha256 "a56be89a8e5ce99d9860c4944eb0896b2062034617b1575bf931d6fa28944dbc"
+    end
   end
 
   def install
