@@ -4,7 +4,7 @@ jobs:
   build:
     name: Run brew test-bot
     # This job runs on Linux
-    runs-on: macos-latest
+    runs-on: macos-13
     steps:
       - name: Checkout pulsar repo
         uses: actions/checkout@v2
@@ -12,7 +12,6 @@ jobs:
       - name: Run brew test-bot
         run: |
           set -e
-          brew upgrade --cask vagrant
           ls /Applications
           sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
           brew update
