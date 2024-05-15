@@ -7,7 +7,8 @@ class Pulsarctl < Formula
     on_intel do
       url "https://github.com/streamnative/pulsarctl/releases/download/v3.2.1.3/pulsarctl-amd64-darwin.tar.gz"
       sha256 "944e0e190aa5c5c4b7a8f1020b1d2fa81755199009a71d8c1eb5c89bd30b517c"
-    else
+    end
+    on_arm do
       url "https://github.com/streamnative/pulsarctl/releases/download/v3.2.1.3/pulsarctl-arm64-darwin.tar.gz"
       sha256 "e76be082b6e1532bf04aa52f37670ac94d5d12ca0dd77474de05e488736e2e71"
     end
