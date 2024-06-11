@@ -5,23 +5,23 @@ class Pulsarctl < Formula
 
   on_macos do
     on_intel do
-      url "https://github.com/streamnative/pulsarctl/releases/download/v3.2.1.3/pulsarctl-amd64-darwin.tar.gz"
-      sha256 "944e0e190aa5c5c4b7a8f1020b1d2fa81755199009a71d8c1eb5c89bd30b517c"
+      url "https://github.com/streamnative/pulsarctl/releases/download/v3.3.0.1/pulsarctl-amd64-darwin.tar.gz"
+      sha256 "30e0ac5341019c6b631377376aae7a9d3279ade6e2d08bd640e2290c90f0ccac"
     end
     on_arm do
-      url "https://github.com/streamnative/pulsarctl/releases/download/v3.2.1.3/pulsarctl-arm64-darwin.tar.gz"
-      sha256 "e76be082b6e1532bf04aa52f37670ac94d5d12ca0dd77474de05e488736e2e71"
+      url "https://github.com/streamnative/pulsarctl/releases/download/v3.3.0.1/pulsarctl-arm64-darwin.tar.gz"
+      sha256 "7b93032b67b238d5cdc673888967c5e4279830b023866f4435e618e328797f41"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/streamnative/pulsarctl/releases/download/v3.2.1.3/pulsarctl-amd64-linux.tar.gz"
-      sha256 "a633252950b18f2bc995dc30d09e850f97ab30360ee7a1a4d3461c3db88642df"
+      url "https://github.com/streamnative/pulsarctl/releases/download/v3.3.0.1/pulsarctl-amd64-linux.tar.gz"
+      sha256 "0d82bfed374f0525e75804044871d5d85d6015ba7ce0d7905d1b6a26ffc73c79"
     end
     on_arm do
-      url "https://github.com/streamnative/pulsarctl/releases/download/v3.2.1.3/pulsarctl-arm64-linux.tar.gz"
-      sha256 "a56be89a8e5ce99d9860c4944eb0896b2062034617b1575bf931d6fa28944dbc"
+      url "https://github.com/streamnative/pulsarctl/releases/download/v3.3.0.1/pulsarctl-arm64-linux.tar.gz"
+      sha256 "39d00acb0dd514037490b6af6a0eacdf4657b16eac7578990af9d782f05e3fcf"
     end
   end
 
