@@ -2,7 +2,7 @@ class Pulsar < Formula
   desc "Distributed pub-sub messaging platform with a very flexible messaging model"
   homepage "https://pulsar.apache.org"
   url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-3.0.0/apache-pulsar-3.0.0-bin.tar.gz"
-  sha256 "a7f79703b8121a57965ba187d35cb90230ca9ff552c73e48a51ed7a559b4089a"
+  sha256 "82b44a91d42b31e929ebf3a8007219c3a623a576ed8d4a2440afecac38f24228"
   license "Apache-2.0"
 
   depends_on "openjdk" => :optional
