@@ -10,7 +10,7 @@ class Pulsar < Formula
   def install
     libexec.install Dir["bin", "lib", "instances", "conf"]
 
-    (libexec/"lib/presto/bin/procname/Linux-ppc64le").rmtree
+    rm_r(libexec/"lib/presto/bin/procname/Linux-ppc64le")
     pkgshare.install Dir["examples", "licenses"]
     (etc/"pulsar").install_symlink libexec/"conf"
 
