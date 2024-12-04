@@ -1,22 +1,39 @@
-name: Homebrew Formulae CI
-on: [pull_request]
-jobs:
-  build:
-    name: Run brew test-bot
-    # This job runs on Linux
-    runs-on: macos-13
-    steps:
-      - name: Checkout pulsar repo
-        uses: actions/checkout@v4
+name: CI
 
-      - name: Run brew test-bot
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  install:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure Git
+        uses: Homebrew/actions/git-user-config@master
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check the CLI formula
         run: |
-          set -e
-          ls /Applications
-          sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
-          brew update
-          HOMEBREW_TAP_DIR="/usr/local/Homebrew/Library/Taps/streamnative/homebrew-streamnative"
-          sudo mkdir -p "${HOMEBREW_TAP_DIR}"
-          sudo rm -rf "${HOMEBREW_TAP_DIR}"
-          sudo ln -s "${PWD}" "${HOMEBREW_TAP_DIR}"
-          brew test-bot
+          brew style snctl 
+
+      - name: Install CLI
+        run: |
+          brew install snctl 
+
+      - name: Run CLI
+        run: |
+          snctl -h
