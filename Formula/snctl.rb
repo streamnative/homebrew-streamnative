@@ -28,7 +28,7 @@ class Snctl < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel? && (Hardware::CPU.is_64_bit?)
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v0.22.0/snctl_0.22.0_linux_amd64.tar.gz"
       sha256 "0f13152923acc1b9b75dad170ebbc92bae6c57b4ec61fd6c4774f23a3c05ae71"
 
@@ -36,7 +36,7 @@ class Snctl < Formula
         bin.install "snctl"
       end
     end
-    if Hardware::CPU.arm? && (Hardware::CPU.is_64_bit?)
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v0.22.0/snctl_0.22.0_linux_arm64.tar.gz"
       sha256 "e39d238c870f88ea17a206a8acc578a14c19e095b7db6f620d8cc7888a594b64"
 
