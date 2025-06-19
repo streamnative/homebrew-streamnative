@@ -5,21 +5,21 @@
 class Snmcp < Formula
   desc "StreamNative MCP Server (snmcp)"
   homepage "https://streamnative.io/"
-  version "0.1.8"
+  version "0.1.9"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/streamnative/streamnative-mcp-server/releases/download/v0.1.8/streamnative-mcp-server_Darwin_x86_64.tar.gz"
-      sha256 "ef4d696c0bfeed215082eed803c81dda72ca20151f365974f529e439e7cf2ff0"
+      url "https://github.com/streamnative/streamnative-mcp-server/releases/download/v0.1.9/streamnative-mcp-server_Darwin_x86_64.tar.gz"
+      sha256 "4a4e646ebe41b05fead34445d329ef449dc487ebe4ff3fb78eb5b6f350e3df75"
 
       def install
         bin.install "snmcp"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/streamnative/streamnative-mcp-server/releases/download/v0.1.8/streamnative-mcp-server_Darwin_arm64.tar.gz"
-      sha256 "436667fd03bb747e81d009aba5c503ccaa58f4f2707af507be2dd538781dd47a"
+      url "https://github.com/streamnative/streamnative-mcp-server/releases/download/v0.1.9/streamnative-mcp-server_Darwin_arm64.tar.gz"
+      sha256 "be0505a3aadc4f12311fc8bd436fa16bec892f856300906b34e4e146d1f92142"
 
       def install
         bin.install "snmcp"
@@ -29,15 +29,15 @@ class Snmcp < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/streamnative/streamnative-mcp-server/releases/download/v0.1.8/streamnative-mcp-server_Linux_x86_64.tar.gz"
-      sha256 "3c4e35f334531cbbb5459e4714a92bb9912b88b35ec1ed5b8c69b6fe03b2ecac"
+      url "https://github.com/streamnative/streamnative-mcp-server/releases/download/v0.1.9/streamnative-mcp-server_Linux_x86_64.tar.gz"
+      sha256 "087293e641a0ad1102c3a9cae392badc9f351cddbaad5905613550eeb603ebe4"
       def install
         bin.install "snmcp"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/streamnative/streamnative-mcp-server/releases/download/v0.1.8/streamnative-mcp-server_Linux_arm64.tar.gz"
-      sha256 "a02898e077e455ecb3a0a21707042707bb13df029683f406add9f86db5037597"
+      url "https://github.com/streamnative/streamnative-mcp-server/releases/download/v0.1.9/streamnative-mcp-server_Linux_arm64.tar.gz"
+      sha256 "6d75bc5a095efd6ac1b364efa42069e48f5e4b251f73f73f897de8e8641cf0c4"
       def install
         bin.install "snmcp"
       end
