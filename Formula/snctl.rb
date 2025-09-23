@@ -8,10 +8,6 @@ class Snctl < Formula
   version "1.4.1"
   license "Apache-2.0"
 
-  def install
-    bin.install "snctl"
-  end
-
   on_macos do
     if Hardware::CPU.intel?
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.4.1/snctl_1.4.1_darwin_amd64.tar.gz"
@@ -32,5 +28,9 @@ class Snctl < Formula
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.4.1/snctl_1.4.1_linux_arm64.tar.gz"
       sha256 "6c24d6147c0d247bc303ef846f183177ae8d40fe11071c22af78b096df2036db"
     end
+  end
+
+  def install
+    bin.install "snctl"
   end
 end
