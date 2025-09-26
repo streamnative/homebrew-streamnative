@@ -12,18 +12,10 @@ class Snctl < Formula
     if Hardware::CPU.intel?
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_darwin_amd64.tar.gz"
       sha256 "fe5322955cbe3d7677512eb047da41f9735c025ccc732997b49be704cd094725"
-
-      def install
-        bin.install "snctl"
-      end
     end
     if Hardware::CPU.arm?
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_darwin_arm64.tar.gz"
       sha256 "f74c003d317343f4def663ff549f47c4ddf176d9b6a8d79dc7cd4a02442bbb9f"
-
-      def install
-        bin.install "snctl"
-      end
     end
   end
 
@@ -31,16 +23,14 @@ class Snctl < Formula
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_linux_amd64.tar.gz"
       sha256 "3c4f5507b23f3d45e400f4c10726a76f32ee8cfc1ea5288d3c05143f2e0d3600"
-      def install
-        bin.install "snctl"
-      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_linux_arm64.tar.gz"
       sha256 "b6d3a8d1132c245e1dfd613db7658392b05d31b1da2023e146786f6ac54af143"
-      def install
-        bin.install "snctl"
-      end
     end
+  end
+
+  def install
+    bin.install "snctl"
   end
 end
