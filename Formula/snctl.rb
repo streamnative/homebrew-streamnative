@@ -5,32 +5,42 @@
 class Snctl < Formula
   desc "StreamNative Cloud CLI (snctl)"
   homepage "https://streamnative.io/"
-  version "1.4.1"
+  version "1.5.0"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.4.1/snctl_1.4.1_darwin_amd64.tar.gz"
-      sha256 "e3376e9e3bce1a7f8dfaad94cc3c1b9ef34da4284d8ef16192039cacd0b6d215"
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_darwin_amd64.tar.gz"
+      sha256 "fe5322955cbe3d7677512eb047da41f9735c025ccc732997b49be704cd094725"
+
+      def install
+        bin.install "snctl"
+      end
     end
     if Hardware::CPU.arm?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.4.1/snctl_1.4.1_darwin_arm64.tar.gz"
-      sha256 "312524265b32b0b42f38e4a8ddd271ed2db3610b98da927b85cfce415f491182"
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_darwin_arm64.tar.gz"
+      sha256 "f74c003d317343f4def663ff549f47c4ddf176d9b6a8d79dc7cd4a02442bbb9f"
+
+      def install
+        bin.install "snctl"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.4.1/snctl_1.4.1_linux_amd64.tar.gz"
-      sha256 "4d006dd1fb0990a72219a87b3ec8011fdf2634fb145f86c8a9bf24a7613d7efc"
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_linux_amd64.tar.gz"
+      sha256 "3c4f5507b23f3d45e400f4c10726a76f32ee8cfc1ea5288d3c05143f2e0d3600"
+      def install
+        bin.install "snctl"
+      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.4.1/snctl_1.4.1_linux_arm64.tar.gz"
-      sha256 "6c24d6147c0d247bc303ef846f183177ae8d40fe11071c22af78b096df2036db"
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_linux_arm64.tar.gz"
+      sha256 "b6d3a8d1132c245e1dfd613db7658392b05d31b1da2023e146786f6ac54af143"
+      def install
+        bin.install "snctl"
+      end
     end
-  end
-
-  def install
-    bin.install "snctl"
   end
 end
