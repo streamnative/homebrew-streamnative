@@ -5,28 +5,28 @@
 class Snctl < Formula
   desc "StreamNative Cloud CLI (snctl)"
   homepage "https://streamnative.io/"
-  version "1.5.0"
+  version "1.6.0"
   license "Apache-2.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_darwin_amd64.tar.gz"
-      sha256 "fe5322955cbe3d7677512eb047da41f9735c025ccc732997b49be704cd094725"
+    on_intel do
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.6.0/snctl_1.6.0_darwin_amd64.tar.gz"
+      sha256 "962c4f3b95328f8478a321b0618c22670ece0dbe5910835fcb02d9541b1ff92b"
     end
-    if Hardware::CPU.arm?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_darwin_arm64.tar.gz"
-      sha256 "f74c003d317343f4def663ff549f47c4ddf176d9b6a8d79dc7cd4a02442bbb9f"
+    on_arm do
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.6.0/snctl_1.6.0_darwin_arm64.tar.gz"
+      sha256 "886b36407d5904ae144c399d5a15818e30a73bb7542122ee245a295d8fc27473"
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_linux_amd64.tar.gz"
-      sha256 "3c4f5507b23f3d45e400f4c10726a76f32ee8cfc1ea5288d3c05143f2e0d3600"
+    on_intel do
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.6.0/snctl_1.6.0_linux_amd64.tar.gz"
+      sha256 "f7574c39fb74c7168d717854733515a672e767f61d16fa27fc39effcdebb9596"
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.5.0/snctl_1.5.0_linux_arm64.tar.gz"
-      sha256 "b6d3a8d1132c245e1dfd613db7658392b05d31b1da2023e146786f6ac54af143"
+    on_arm do
+      url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.6.0/snctl_1.6.0_linux_arm64.tar.gz"
+      sha256 "dd7d3578dd563c25a1f6d7f4489a626634daf34d10310d0af3d3c3f047b8ab3d"
     end
   end
 
