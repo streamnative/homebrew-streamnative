@@ -9,38 +9,28 @@ class Snctl < Formula
   license "Apache-2.0"
 
   on_macos do
-    if Hardware::CPU.intel?
+    on_intel do
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.6.0/snctl_1.6.0_darwin_amd64.tar.gz"
       sha256 "962c4f3b95328f8478a321b0618c22670ece0dbe5910835fcb02d9541b1ff92b"
-
-      def install
-        bin.install "snctl"
-      end
     end
-    if Hardware::CPU.arm?
+    on_arm do
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.6.0/snctl_1.6.0_darwin_arm64.tar.gz"
       sha256 "886b36407d5904ae144c399d5a15818e30a73bb7542122ee245a295d8fc27473"
-
-      def install
-        bin.install "snctl"
-      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+    on_intel do
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.6.0/snctl_1.6.0_linux_amd64.tar.gz"
       sha256 "f7574c39fb74c7168d717854733515a672e767f61d16fa27fc39effcdebb9596"
-      def install
-        bin.install "snctl"
-      end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+    on_arm do
       url "https://storage.googleapis.com/downloads.streamnative.cloud/snctl/v1.6.0/snctl_1.6.0_linux_arm64.tar.gz"
       sha256 "dd7d3578dd563c25a1f6d7f4489a626634daf34d10310d0af3d3c3f047b8ab3d"
-      def install
-        bin.install "snctl"
-      end
     end
+  end
+
+  def install
+    bin.install "snctl"
   end
 end
