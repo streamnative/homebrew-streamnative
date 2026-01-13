@@ -19,7 +19,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Configure Git
-        uses: Homebrew/actions/git-user-config@master
+        run: |
+          git config --global user.name "Homebrew Bot"
+          git config --global user.email "homebrew@github.com"
 
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
