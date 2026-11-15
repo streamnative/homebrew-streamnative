@@ -43,4 +43,8 @@ class Snctl < Formula
       end
     end
   end
+
+  test do
+    assert_match "GitVersion:\"#{version}\"", shell_output("#{bin}/snctl version --client")
+  end
 end
